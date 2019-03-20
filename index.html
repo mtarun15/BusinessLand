@@ -268,3 +268,35 @@
       </div>
     </div>
   </footer>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+  <script>
+    $(document).ready(function () {
+      // Init Sidenav
+      $('.button-collapse').sideNav();
+
+      // Init Scrollspy
+      $('.scrollspy').scrollSpy();
+
+      // ScrollFire
+      const options = [
+        {
+          selector: '.main-text', offset: 0, callback: function (el) {
+            Materialize.fadeInImage($(el));
+          }
+        },
+        {
+          selector: '.navbar-fixed', offset: 1500, callback: function () {
+            $('nav').removeClass('transparent');
+            $('nav').addClass('blue-grey darken-3');
+          }
+        }
+      ];
+
+      Materialize.scrollFire(options);
+
+      const position = [42.361145, -71.057083];
+      const centerPosition = [42.377815, -70.981133];
